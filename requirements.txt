@@ -1,0 +1,10 @@
+Flask==2.3.3
+numpy==1.26.4
+tensorflow==2.19.0
+h5py==3.11.0
+scikit-learn==1.4.2
+markdown==3.6
+sentence-transformers==2.7.0
+pinecone-client==3.2.2
+protobuf==4.25.3
+requests==2.31.0

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediBot AI – Symptom Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">MediBot AI</h1>
+        <p class="lead">Your Personal Symptom Checker and Medical Assistant</p>
+    </div>
+
+    <!-- Instruction Card -->
+    <div class="card mb-4 shadow-sm border-start border-info border-4">
+        <div class="card-body">
+            <h4 class="card-title text-info">🩺 Not Sure Where to Start?</h4>
+            <p class="card-text">
+                <strong>👉 If you're experiencing clear or serious symptoms</strong> (e.g., chest pain, high fever, persistent cough), please use the 
+                <span class="text-primary fw-semibold">Symptom Checker</span> below to get an AI-based disease prediction.
+                <br><br>
+                <strong>💬 If your symptoms are mild or unclear</strong> (e.g., "feeling off", "itchiness", or not listed), use the 
+                <span class="text-success fw-semibold">Ask a Health Question</span> section to get helpful insights from MediBot.
+            </p>
+        </div>
+    </div>
+
+    <!-- Symptom Checker Form -->
+    <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-primary">Symptom Checker – For Clear or Serious Issues</h4>
+            <form action="/predict" method="POST">
+                <div class="mb-3">
+                    <label for="symptoms" class="form-label">Hold Ctrl (or Cmd) to select multiple symptoms:</label>
+                    <select id="symptoms" name="symptoms" class="form-select" multiple size="10" required>
+                        {% for symptom in symptoms %}
+                            <option value="{{ symptom }}">{{ symptom }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict Disease</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Ask Question Form -->
+    <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-success">Health Q&A – For Mild or Unlisted Symptoms</h4>
+            <form action="/ask" method="POST">
+                <div class="mb-3">
+                    <label for="user_question" class="form-label">Your Question:</label>
+                    <input type="text" id="user_question" name="query" class="form-control" placeholder="e.g., What are the symptoms of typhoid?" required>
+                </div>
+                <button type="submit" class="btn btn-success">Ask</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI Response Section -->
+    {% if bot_response %}
+    <div class="card shadow-sm border-start border-success border-4">
+        <div class="card-body">
+            <h5 class="card-title text-primary">MediBot Response</h5>
+            <div class="card-text">{{ bot_response | safe }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<!-- Optional Bootstrap JS (for components) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

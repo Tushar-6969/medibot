@@ -1,0 +1,16 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #0066ff, #00ccff);
+}
+
+.card-header {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+footer {
+  background: linear-gradient(90deg, #333, #222);
+}

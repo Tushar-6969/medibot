@@ -1,0 +1,90 @@
+<!-- File: templates/chatbot.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MediBot AI – Chat</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 700px;
+      margin-top: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+    }
+    h1 {
+      color: #0d6efd;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    form input[type="text"] {
+      min-height: 48px;
+      font-size: 1.1rem;
+    }
+    .chat-box {
+      margin-top: 25px;
+      border-top: 2px solid #0d6efd;
+      padding-top: 20px;
+    }
+    .chat-box p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    .chat-box p strong {
+      color: #0d6efd;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #6c757d;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: #0d6efd;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container shadow-sm">
+    <h1>MediBot AI – Health Chatbot</h1>
+
+    <form action="/chatbot" method="post" class="d-flex gap-2">
+      <input
+        type="text"
+        name="user_query"
+        class="form-control"
+        placeholder="Ask a medical question..."
+        required
+        autocomplete="off"
+        autofocus
+      />
+      <button type="submit" class="btn btn-primary px-4">
+        Send
+      </button>
+    </form>
+
+    {% if user_input %}
+      <div class="chat-box">
+        <p><strong>You:</strong> {{ user_input }}</p>
+        <p><strong>MediBot:</strong> {{ response }}</p>
+      </div>
+    {% endif %}
+
+    <a href="/" class="back-link">← Back to Symptom Checker</a>
+  </div>
+
+  <!-- Bootstrap JS Bundle (optional, for Bootstrap components if needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

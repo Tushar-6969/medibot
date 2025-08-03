@@ -1,0 +1,42 @@
+
+    body {
+      background: linear-gradient(to right, #f0f4ff, #e0f7fa);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    .chat-box {
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .chat-box h2 {
+      color: #0d6efd;
+      margin-bottom: 20px;
+    }
+
+    .user-question, .bot-response {
+      margin-bottom: 20px;
+    }
+
+    .user-question strong {
+      color: #198754;
+    }
+
+    .bot-response strong {
+      color: #dc3545;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+  

@@ -1,0 +1,61 @@
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+
+# Ignore virtual environment folders
+env/
+.venv/
+ENV/
+env.bak/
+venv/
+**/env/
+**/venv/
+
+# Ignore environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Jupyter and notebook metadata (if used)
+.ipynb_checkpoints/
+
+# Ignore logs
+*.log
+
+# Compiled C extensions
+*.so
+
+# Database or storage
+*.sqlite3
+*.db
+*.db-journal
+
+# Ignore uploads/temp folders (customize if used)
+uploads/
+tmp/
+temp/
+
+# Ignore files from Python tools
+.mypy_cache/
+.pytest_cache/
+coverage.*
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Ignore frontend build (if any)
+node_modules/
+dist/
+build/
+
+# Ignore Pinecone cache/local storage (if added)
+pinecone_cache/
